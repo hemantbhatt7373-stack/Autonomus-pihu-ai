@@ -1,0 +1,9 @@
+SpeechRecognition
+PyAudio
+edge-tts
+pygame
+customtkinter
+Pillow
+google-generativeai
+python-dotenv
+requests

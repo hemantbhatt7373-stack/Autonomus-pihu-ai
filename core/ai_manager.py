@@ -1,30 +1,28 @@
 from core.ai import ask_ai
 
-print("AI Manager Loaded")
-
 
 def get_reply(message):
     """
     AI Manager
 
-    1. Pehle Gemini try karega.
-    2. Agar Gemini fail ho jaye to Offline Brain reply dega.
+    Pehle OpenRouter AI try karega.
+    Agar koi error aaye to offline replies dega.
     """
 
     try:
         return ask_ai(message)
 
     except Exception as e:
-        print("Offline Mode:", e)
+        print("AI Error:", e)
 
     text = message.lower().strip()
 
     # Greetings
     if any(x in text for x in [
-        "hello", "hi", "hey", "helo",
+        "hello", "hi", "hey",
         "हेलो", "हाय"
     ]):
-        return "Hello Hemant! 😊 Main Pihu hoon. Batao main kya help kar sakti hoon?"
+        return "Hello Hemant! 😊 Main Pihu hoon."
 
     # How are you
     if any(x in text for x in [
@@ -36,34 +34,16 @@ def get_reply(message):
 
     # Thanks
     if any(x in text for x in [
-        "thank",
-        "thanks",
-        "thank you",
-        "shukriya",
-        "धन्यवाद"
+        "thank", "thanks", "thank you",
+        "shukriya", "धन्यवाद"
     ]):
-        return "You're most welcome Hemant. 😊"
-
-    # Who are you
-    if any(x in text for x in [
-        "who are you",
-        "tum kaun ho",
-        "तुम कौन हो"
-    ]):
-        return "Main Pihu hoon. Tumhari personal AI assistant."
+        return "You're welcome Hemant. 😊"
 
     # Bye
     if any(x in text for x in [
-        "bye",
-        "goodbye",
-        "exit",
-        "stop",
-        "बाय"
+        "bye", "goodbye", "exit", "stop"
     ]):
-        return "Goodbye Hemant. Apna khayal rakhna."
+        return "Goodbye Hemant."
 
-    # Offline fallback
-    return (
-        "Mera AI abhi available nahi hai. "
-        "Lekin main basic baatein aur commands kar sakti hoon."
-    )
+    # Default
+    return "Sorry Hemant, mujhe iska jawab nahi pata."

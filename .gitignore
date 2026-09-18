@@ -1,5 +1,7 @@
+.env
 .venv/
 __pycache__/
+*.pyc
+data/pihu_memory.json
 temp/
-*.mp3
-.env
+sandbox/

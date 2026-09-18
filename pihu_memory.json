@@ -1,0 +1,12 @@
+{
+  "users": {
+    "Hemant": {
+      "history": [],
+      "favorite_color": "Blue"
+    },
+    "Rahul": {
+      "history": [],
+      "favorite_color": null
+    }
+  }
+}
